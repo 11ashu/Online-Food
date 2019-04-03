@@ -1,0 +1,152 @@
+<div class="d-flex" id="wrapper">
+    <app-navigation></app-navigation>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <app-top-nav></app-top-nav>
+        <div class="container-fluid">
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                      <!-- Breadcrumbs--> 
+                      <br>
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="#">Admin</a>
+                        </li>
+                        <li class="breadcrumb-item active">Profile</li>
+                      </ol>
+              
+                      <!-- Icon Cards-->
+                      <div class="row">
+                            <div class="col-sm">  
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                      <input type='file' 
+                                             id="imageUpload" 
+                                             accept=".png, .jpg, .jpeg" 
+                                             #fileInput 
+                                             (change)="uploadFile($event)" />
+                                      <label for="imageUpload" 
+                                             *ngIf="editFile" 
+                                             [ngClass]="['custom-label', 'upload-image']"></label>
+                                      <label *ngIf="removeUpload" 
+                                             [ngClass]="['custom-label', 'remove-image']" 
+                                             (click)="removeUploadedFile()"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                      <img [src]="imageUrl" height="200">
+                                    </div>
+                                </div>
+                                <!-- <img src="../../assets/images/demo.png" alt="..."> -->
+                                <div class="card mt-3" style="width: 18rem;border: none" >
+                                      <div class="card-body">
+                                        <h5 class="card-title">{{detail.admindetail.name}}</h5>
+                                        <p class="card-text">
+                                            {{detail.admindetail.address}}
+                                        </p>
+                                        
+                                      </div>
+                                      <button class="btn btn-warning">Change Password</button>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong> Edit Admin Settings </strong><small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form [formGroup]="adminProfileForm" (ngSubmit)="onSubmit()">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" 
+                                              class="form-control" 
+                                              formControlName="email" 
+                                              name="email"  
+                                              [(ngModel)]="detail.admindetail.email"  
+                                              [ngClass]="{'is-invalid': submitted && myForm.email.errors}" 
+                                              id="exampleInputEmail1" 
+                                              aria-describedby="emailHelp" 
+                                              placeholder="Enter email">
+                                              
+                                              <!-- error block -->
+                                              <div  class="invalid-feedback" 
+                                                    *ngIf="submitted && myForm.email.errors?.required">
+                                                    <sup>*</sup>Please enter your email
+                                              </div>
+                                              <div  class="invalid-feedback" 
+                                                    *ngIf="submitted && myForm.email.errors?.pattern">
+                                                    <sup>*</sup>Please enter valid email
+                                              </div>
+                                    </div>
+                                    <div class="form-group">
+                                          <label for="exampleInputPassword1">Full Name</label>
+                                          <input type="text" 
+                                                class="form-control" 
+                                                name="name" 
+                                                formControlName="name" 
+                                                [(ngModel)]="detail.admindetail.name" 
+                                                [ngClass]="{'is-invalid': submitted && myForm.name.errors}"
+                                                id="exampleInputPassword1" 
+                                                placeholder="Enter Your Name">
+                                          <!-- error block -->
+                                          <div   class="invalid-feedback" 
+                                                 *ngIf="submitted && myForm.name.errors?.required">
+                                                 <sup>*</sup>Enter your name
+                                          </div>
+                                          <div   class="invalid-feedback" 
+                                                 *ngIf="submitted && myForm.name.errors?.minlength">
+                                                 <sup>*</sup>Name must be 2 characters long
+                                          </div>
+                                          <div   class="invalid-feedback" 
+                                                 *ngIf="submitted && myForm.name.errors?.pattern">
+                                                 <sup>*</sup>No special charcter allowed
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                          <label    for="exampleFormControlTextarea1">Address</label>
+                                          <textarea class="form-control" 
+                                                    name="address" 
+                                                    formControlName="address"
+                                                    [(ngModel)]="detail.admindetail.address" 
+                                                    id="exampleFormControlTextarea1" 
+                                                    rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Phone</label>
+                                        <input type="text" 
+                                               class="form-control" 
+                                               formControlName="phone" 
+                                               name="phone"  
+                                               [ngClass]="{'is-invalid': submitted && myForm.phone.errors}" 
+                                               name="phone" 
+                                               [(ngModel)]="detail.admindetail.phone" 
+                                               id="exampleInputPassword1" 
+                                               placeholder="Ex.9936856958">
+                                              <!-- error block -->
+                                              <div   class="invalid-feedback" 
+                                                     *ngIf="submitted && myForm.phone.errors?.maxlength">
+                                                     <sup>*</sup>Phone number must be 10 digit long
+                                              </div>
+                                              <div   class="invalid-feedback" 
+                                                     *ngIf="submitted && myForm.phone.errors?.required">
+                                                      <sup>*</sup>Please enter your phone number
+                                              </div>
+                                              <div   class="invalid-feedback" 
+                                                     *ngIf="submitted && myForm.phone.errors?.pattern">
+                                                     <sup>*</sup>Please enter valid phone number
+                                              </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Update Detail</button>
+                                </form>
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                      </div>
+                <!-- /page content -->
+                </div>
+            </div>
+         </div>
+     </div>
+  <!-- /#page-content-wrapper -->
+</div>

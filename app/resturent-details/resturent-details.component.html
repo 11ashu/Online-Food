@@ -1,0 +1,92 @@
+<div class="d-flex" id="wrapper">
+    <app-navigation></app-navigation>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <app-top-nav></app-top-nav>
+        <div class="container-fluid">
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                      <!-- Breadcrumbs--> 
+                      <br>
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="#">Admin</a>
+                        </li>
+                        <li class="breadcrumb-item active">Restaurant Details
+                            Setting</li>
+                      </ol>
+              
+                      <!-- Icon Cards-->
+                      <div class="row">
+                            <div class="col-sm">
+                                <form >
+                                    <div class="form-row">
+                                       <div class="form-group col-md-6">
+                                           <label for="exampleInputEmail1">Restaurant Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputPassword1">Restaurant Address</label>
+                                             <input type="text" class="form-control" id="exampleInputPassword1" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Restaurant Description</label>
+                                        <textarea class="form-control"  name="content" id="editor">This is some sample content.</textarea>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlTextarea1">Phone No</label>
+                                        <input type="number" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlTextarea1">Operational Hours</label>
+                                        <input type="number" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleFormControlTextarea1">Latitude</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleFormControlTextarea1">Longitude</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleFormControlTextarea1">Website</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                  </div>
+                                    <label for="exampleFormControlTextarea1">Current Images:</label>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Images</th>
+                                            <th scope="col">Action</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">
+                                                <input type="file" class="form-control" id="exampleInputPassword1" >
+                                            </th>
+                                            <td><button class="btn btn-danger">Delete</button></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <button type="submit" class="btn btn-warning mt-3 float-left">Add More Image</button>
+                                    <button type="submit" class="btn btn-primary mt-3 float-right">Update Resturent Details</button>
+                                  </form>
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                      </div>
+                <!-- /page content -->
+                </div>
+            </div>
+         </div>
+     </div>
+  <!-- /#page-content-wrapper -->
+</div>

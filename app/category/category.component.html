@@ -1,0 +1,67 @@
+<div class="d-flex" id="wrapper">
+    <app-navigation></app-navigation>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <app-top-nav></app-top-nav>
+        <div class="container-fluid">
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                      <!-- Breadcrumbs--> 
+                      <br>
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="#">Admin</a>
+                        </li>
+                        <li class="breadcrumb-item active">Category Details</li>
+                      </ol>
+              
+                      <!-- Icon Cards-->
+                      <div class="row">
+                            <div class="col-sm">
+                                <!-- DataTables Example -->
+         <div class="card mb-3">
+            <div class="card-header">
+                 <button class="btn btn-warning"><a routerLink="/addcategory">Add Category</a></button>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Image</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Image</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+                            </div>
+                      </div>
+                <!-- /page content -->
+                </div>
+            </div>
+         </div>
+     </div>
+  <!-- /#page-content-wrapper -->
+</div>
